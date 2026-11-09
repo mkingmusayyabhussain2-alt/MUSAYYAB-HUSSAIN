@@ -14,13 +14,13 @@
 <meta name="keywords" content="Musayyab Hussain Shah, Musayyab Hussain Shah portfolio, Musayyab Hussain Shah web developer, Musayyab Hussain portfolio, Musayyab Hussain web developer, web developer portfolio, app developer portfolio" />
 <meta name="author" content="Musayyab Hussain Shah" />
 <meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/" />
+<link rel="canonical" href="https://musayyab-hussain-zeta.vercel.app/" />
 <!-- Open Graph -->
 <meta property="og:title" content="Musayyab Hussain | Web and App Developer" />
 <meta property="og:description" content="Musayyab Hussain is a Web and App Developer who turns ideas into fast, clean, real products — from business websites to full apps with AI built in." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/" />
-<meta property="og:image" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/assets/portrait.jpg" />
+<meta property="og:url" content="https://musayyab-hussain-zeta.vercel.app/" />
+<meta property="og:image" content="https://musayyab-hussain-zeta.vercel.app/portrait.jpg" />
 <meta property="og:image:alt" content="Portrait of Musayyab Hussain, Web and App Developer" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Musayyab Hussain" />
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Musayyab Hussain | Web and App Developer" />
 <meta name="twitter:description" content="Musayyab Hussain is a Web and App Developer who turns ideas into fast, clean, real products — from business websites to full apps with AI built in." />
-<meta name="twitter:image" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/assets/portrait.jpg" />
+<meta name="twitter:image" content="https://musayyab-hussain-zeta.vercel.app/portrait.jpg" />
 <meta name="twitter:image:alt" content="Portrait of Musayyab Hussain, Web and App Developer" />
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -680,6 +680,28 @@ dialog{max-height:calc(100dvh - 24px);overflow-y:auto}
   h1.name{font-size:clamp(38px,13.5vw,92px)}
 }
 
+/* ---------- memory match game ---------- */
+.memo-board{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:20px}
+@media(max-width:480px){.memo-board{gap:7px}}
+.memo-card{position:relative;aspect-ratio:1;background:transparent;border:0;padding:0;perspective:600px;-webkit-tap-highlight-color:transparent}
+.memo-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .45s var(--ease)}
+.memo-card.flipped .memo-inner,.memo-card.matched .memo-inner{transform:rotateY(180deg)}
+.memo-face{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid var(--line)}
+.memo-back{background:var(--bg2);font-family:"Anton",sans-serif;font-size:clamp(18px,4vw,26px);color:var(--muted2);transition:border-color .25s,color .25s}
+.memo-card:not(.flipped):not(.matched):hover .memo-back{border-color:var(--accent);color:var(--accent)}
+.memo-front{background:var(--panel2);transform:rotateY(180deg);font-family:ui-monospace,Menlo,Consolas,monospace;font-weight:700;font-size:clamp(14px,3.6vw,22px);color:var(--text)}
+.memo-card.matched .memo-front{border-color:#30c48d;color:#30c48d;background:rgba(48,196,141,.10)}
+.memo-card:disabled{cursor:default}
+@media(prefers-reduced-motion:reduce){.memo-inner{transition:none}}
+
+/* ---------- experience ---------- */
+.exp-list{border-top:1px solid var(--line-soft)}
+.exp-item{display:flex;gap:20px;align-items:baseline;padding:26px 4px;border-bottom:1px solid var(--line-soft)}
+.exp-item .n{font-family:"Anton",sans-serif;color:var(--accent);font-size:16px;flex:none}
+.exp-item .exp-body{flex:1;min-width:0}
+.exp-item h3{font-family:"Anton",sans-serif;text-transform:uppercase;font-size:clamp(20px,2.6vw,27px);letter-spacing:.02em;line-height:1.15;margin-bottom:6px}
+.exp-item p{color:var(--muted);font-size:15.5px;max-width:68ch}
+
 /* reveal — the hidden start state applies only when JS is running (html.js),
    so content is never trapped invisible if scripts fail */
 .js .reveal{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -701,6 +723,62 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
   #toTopFloat{transition:none}
   .svc:hover{transform:none}
   .work-card:hover,.js .work-card.reveal.in:hover{transform:none}
+}
+
+/* ---------- responsive fit + polish (all viewports, 320px → desktop) ---------- */
+section[id],footer{scroll-margin-top:calc(var(--header-h) + 14px)}
+main,section,.wrap,.header-in{min-width:0}
+img,svg,video,canvas{max-width:100%}
+h1.name,.contact-big,h2.sec-title{overflow-wrap:break-word}
+.btn:active{transform:scale(.98)}
+.btn-red:active,.btn-ghost:active,.btn-wa:active{transform:scale(.98)}
+.play-card,.builder,.term,.faq-item{box-shadow:0 14px 34px rgba(0,0,0,.22)}
+.play-card{transition:border-color .3s}
+.play-card:hover{border-color:rgba(242,239,235,.22)}
+.faq-item{transition:border-color .25s}
+.faq-item:hover{border-color:rgba(242,239,235,.22)}
+.memo-card{min-height:44px}
+.quiz-opt,.term-chips button,.copy-btn{min-height:48px}
+.accent-dock{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+#toTopFloat{bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+/* tablet: services breathe in 2 columns instead of one long stack */
+@media(max-width:1024px) and (min-width:701px){
+  .services-grid{grid-template-columns:1fr 1fr}
+  .services-grid .svc:last-child{grid-column:1 / -1}
+  .hero-bottom{gap:22px}
+}
+/* small tablets / large phones */
+@media(max-width:700px){
+  section{padding:68px 0}
+  .sec-head{margin-bottom:38px;gap:14px}
+  .sec-note{max-width:100%}
+  .hero-strip div{flex:1 1 46%;padding:14px 14px}
+  .hero-ctas .btn{flex:1 1 100%}
+  .work-actions .btn,.cta-band .btn{width:100%}
+  .builder-actions .btn{flex:1 1 100%}
+  .copy-row{flex-direction:column}
+  .exp-item{gap:14px;padding:22px 2px}
+  .play-hud{gap:16px}
+  .hud-actions{width:100%}
+  .hud-actions .btn{flex:1}
+  .quiz-actions .btn{flex:1}
+  .foot-in{flex-direction:column;align-items:flex-start}
+  .foot-links{margin-left:0}
+  .foot-base{align-items:center}
+}
+/* phones down to 320px */
+@media(max-width:360px){
+  .wrap,.header-in{width:calc(100% - 24px)}
+  .hero-strip div{flex:1 1 100%;border-right:0;border-bottom:1px solid var(--line-soft)}
+  .hero-strip div:last-child{border-bottom:0}
+  .ticker span{font-size:19px}
+  .dcard{padding:20px 18px}
+  .builder,.play-card{padding:18px 16px}
+  .term-body{padding:12px 11px 8px}
+  .memo-board{gap:6px}
+}
+@media(prefers-reduced-motion:reduce){
+  .btn:active,.play-card,.faq-item{transition:none;transform:none}
 }
 </style>
 </head>
@@ -744,11 +822,12 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
   <a href="#work"><span>01</span>Work</a>
   <a href="#services"><span>02</span>Services</a>
   <a href="#about"><span>03</span>About</a>
-  <a href="#process"><span>04</span>Process</a>
-  <a href="#terminal"><span>05</span>Terminal</a>
-  <a href="#playground"><span>06</span>Play</a>
-  <a href="#faq"><span>07</span>FAQ</a>
-  <a href="#contact"><span>08</span>Contact</a>
+  <a href="#experience"><span>04</span>Experience</a>
+  <a href="#process"><span>05</span>Process</a>
+  <a href="#terminal"><span>06</span>Terminal</a>
+  <a href="#playground"><span>07</span>Play</a>
+  <a href="#faq"><span>08</span>FAQ</a>
+  <a href="#contact"><span>09</span>Contact</a>
   <div class="mm-cta">
     <a href="https://wa.me/923217091669?text=Assalam-o-Alaikum%20Musayyab!%20I%20saw%20your%20portfolio%20and%20I%20want%20a%20website%20%2F%20app.">WhatsApp Me</a>
     <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=maba.net.56z@gmail.com&amp;su=Project%20Inquiry%20for%20Musayyab%20Hussain">Email Me</a>
@@ -914,11 +993,52 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
     </div>
   </section>
 
+  <!-- EXPERIENCE -->
+  <section id="experience" style="padding-top:20px">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="sec-index">/ 04</span>
+        <h2 class="sec-title">My<br/><span class="outline">Experience</span></h2>
+        <p class="sec-note">What I have actually built and shipped so far — the real work, in my own track record.</p>
+      </div>
+      <div class="exp-list reveal">
+        <div class="exp-item">
+          <span class="n">01</span>
+          <div class="exp-body">
+            <h3>Web &amp; App Developer</h3>
+            <p>I design and build websites and apps end to end — planning the layout, writing the code, and making sure everything works properly on real phones.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <span class="n">02</span>
+          <div class="exp-body">
+            <h3>Built the Personal AI Workspace App</h3>
+            <p>A complete app with 8 sections — AI Chat, Projects, Files, Dashboard and more — including per-file controls for what the AI can see and a full activity log.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <span class="n">03</span>
+          <div class="exp-body">
+            <h3>Portfolio Websites, Live on the Web</h3>
+            <p>I have built portfolio websites and put them live myself — published on both GitHub Pages and Vercel, so anyone can open them from anywhere.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <span class="n">04</span>
+          <div class="exp-body">
+            <h3>Verified &amp; Indexed on Google</h3>
+            <p>I verified my website&rsquo;s ownership in Google Search Console, and the site is indexed on Google.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PROCESS -->
   <section id="process" style="padding-top:20px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-index">/ 04</span>
+        <span class="sec-index">/ 05</span>
         <h2 class="sec-title">How I<br/><span class="outline">Work</span></h2>
         <p class="sec-note">A simple, honest process — you always know what&rsquo;s happening with your project.</p>
       </div>
@@ -960,7 +1080,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
       </div>
 
       <div class="sec-head reveal">
-        <span class="sec-index">/ 05</span>
+        <span class="sec-index">/ 06</span>
         <h2 class="sec-title">The<br/><span class="outline">Terminal</span></h2>
         <p class="sec-note">Don&rsquo;t just read about the developer — interrogate his terminal. Type a command, press Enter.</p>
       </div>
@@ -995,7 +1115,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
   <section id="playground" style="padding-top:20px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-index">/ 06</span>
+        <span class="sec-index">/ 07</span>
         <h2 class="sec-title">The<br/><span class="outline">Playground</span></h2>
         <p class="sec-note">Every developer ships bugs. Squashing them fast is the fun part — try it yourself.</p>
       </div>
@@ -1052,6 +1172,22 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
           <button class="btn btn-ghost btn-sm" id="quizRestart" type="button" hidden>Play Again</button>
         </div>
       </div>
+
+      <div class="play-card reveal" style="margin-top:20px">
+        <div class="quiz-head">
+          <h3 class="quiz-title">Memory Match</h3>
+          <div class="quiz-meta"><span>Pairs <b id="memoPairs">0 / 8</b></span><span class="quiz-score">Best <b id="memoBest">&mdash;</b></span></div>
+        </div>
+        <div class="play-hud">
+          <div class="hud-item"><span class="hud-lab">Moves</span><span class="hud-val" id="memoMoves">0</span></div>
+          <div class="hud-item"><span class="hud-lab">Time</span><span class="hud-val accent" id="memoTime">0:00</span></div>
+          <div class="hud-actions">
+            <button class="btn btn-red btn-sm" id="memoStart" type="button">New Game</button>
+          </div>
+        </div>
+        <div class="memo-board" id="memoBoard" role="group" aria-label="Memory match card board"></div>
+        <p class="play-status" id="memoStatus" aria-live="polite">Tap any card to start — flip two at a time and find all 8 matching pairs of code symbols.</p>
+      </div>
     </div>
   </section>
 
@@ -1059,7 +1195,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
   <section id="faq" style="padding-top:20px">
     <div class="wrap">
       <div class="sec-head reveal">
-        <span class="sec-index">/ 07</span>
+        <span class="sec-index">/ 08</span>
         <h2 class="sec-title">Common<br/><span class="outline">Questions</span></h2>
         <p class="sec-note">Quick answers before you message — anything else, just ask me directly.</p>
       </div>
@@ -1082,7 +1218,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
         </details>
         <details class="faq-item">
           <summary>Can I play around with code here?</summary>
-          <div class="faq-a"><p>Yes — try the <a href="#terminal">Terminal</a>: type <strong>help</strong> and it answers like a real command line. There is also a quick coding quiz and a bug-squashing game waiting in the <a href="#playground">Playground</a>.</p></div>
+          <div class="faq-a"><p>Yes — try the <a href="#terminal">Terminal</a>: type <strong>help</strong> and it answers like a real command line. There is also a quick coding quiz, a bug-squashing game and a memory match game waiting in the <a href="#playground">Playground</a>.</p></div>
         </details>
       </div>
     </div>
@@ -1162,6 +1298,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
         <a href="#work">Work</a>
         <a href="#services">Services</a>
         <a href="#about">About</a>
+        <a href="#experience">Experience</a>
         <a href="#process">Process</a>
         <a href="#terminal">Terminal</a>
         <a href="#faq">FAQ</a>
@@ -1290,7 +1427,7 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
         }
       });
     }, {rootMargin: "-40% 0px -55% 0px"});
-    ["work","services","about","process","terminal","playground","faq","contact"].forEach(function(id){
+    ["work","services","about","experience","process","terminal","playground","faq","contact"].forEach(function(id){
       var s = document.getElementById(id); if (s) spy.observe(s);
     });
   }
@@ -1365,10 +1502,11 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
   });
 
   /* ---------- share buttons (Web Share API, clipboard fallback) ---------- */
+  var canonicalLink = document.querySelector('link[rel="canonical"]');
   var shareData = {
     title: "Musayyab Hussain — Web & App Developer",
     text: "Musayyab Hussain — Web and App Developer. Check out my portfolio:",
-    url: window.location.href
+    url: canonicalLink ? canonicalLink.href : "https://musayyab-hussain-zeta.vercel.app/"
   };
   document.querySelectorAll(".share-btn").forEach(function(btn){
     var label = btn.querySelector(".share-txt");
@@ -2100,6 +2238,123 @@ dialog[open]{animation:dlgIn .45s var(--ease)}
     quizNext.addEventListener("click", function(){ qi++; renderQuiz(); });
     quizRestart.addEventListener("click", function(){ qi = 0; qScore = 0; renderQuiz(); });
     renderQuiz();
+  }
+
+  /* ---------- Memory Match: flip cards, find the pairs ---------- */
+  var memoBoard = document.getElementById("memoBoard");
+  var memoStart = document.getElementById("memoStart");
+  if (memoBoard && memoStart) {
+    var memoMovesEl = document.getElementById("memoMoves");
+    var memoTimeEl = document.getElementById("memoTime");
+    var memoPairsEl = document.getElementById("memoPairs");
+    var memoBestEl = document.getElementById("memoBest");
+    var memoStatus = document.getElementById("memoStatus");
+    var MEMO_SYMS = ["</>", "{ }", "#", "=>", "( )", "&&", "/*", ";"];
+    var MEMO_KEY = "mh-memo-best";
+    var mFirst = null, mLock = false, mMoves = 0, mPairs = 0, mStartedAt = 0, mRaf = null, mDone = false;
+    var mBest = 0;
+    try {
+      var savedMemo = parseInt(window.localStorage.getItem(MEMO_KEY) || "0", 10);
+      if (isFinite(savedMemo) && savedMemo > 0) mBest = savedMemo;
+    } catch(e) { mBest = 0; }
+    function memoBestText(){ memoBestEl.textContent = mBest > 0 ? mBest + " moves" : "\u2014"; }
+    function memoClock(){
+      var s = Math.floor((Date.now() - mStartedAt) / 1000);
+      memoTimeEl.textContent = Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+    }
+    function memoStopTimer(){ if (mRaf) { cancelAnimationFrame(mRaf); mRaf = null; } }
+    function memoTick(){
+      memoClock();
+      if (mStartedAt && !mDone) mRaf = requestAnimationFrame(memoTick);
+      else mRaf = null;
+    }
+    function memoDeal(){
+      memoStopTimer();
+      mFirst = null; mLock = false; mMoves = 0; mPairs = 0; mDone = false; mStartedAt = 0;
+      memoMovesEl.textContent = "0";
+      memoTimeEl.textContent = "0:00";
+      memoPairsEl.textContent = "0 / 8";
+      memoStatus.textContent = "Fresh board shuffled — tap any card to start the clock.";
+      var deck = MEMO_SYMS.concat(MEMO_SYMS);
+      for (var i = deck.length - 1; i > 0; i--) {
+        var j = (Math.random() * (i + 1)) | 0;
+        var t = deck[i]; deck[i] = deck[j]; deck[j] = t;
+      }
+      memoBoard.innerHTML = "";
+      deck.forEach(function(sym){
+        var card = document.createElement("button");
+        card.type = "button";
+        card.className = "memo-card";
+        card.setAttribute("aria-label", "Hidden card — flip to reveal");
+        var inner = document.createElement("span");
+        inner.className = "memo-inner";
+        var back = document.createElement("span");
+        back.className = "memo-face memo-back";
+        back.textContent = "?";
+        back.setAttribute("aria-hidden", "true");
+        var front = document.createElement("span");
+        front.className = "memo-face memo-front";
+        front.textContent = sym;
+        inner.appendChild(back);
+        inner.appendChild(front);
+        card.appendChild(inner);
+        card.addEventListener("click", function(){ memoFlip(card, sym); });
+        memoBoard.appendChild(card);
+      });
+    }
+    function memoFlip(card, sym){
+      if (mLock || mDone || card.classList.contains("flipped") || card.classList.contains("matched")) return;
+      if (!mStartedAt) {
+        mStartedAt = Date.now();
+        if (!mRaf) mRaf = requestAnimationFrame(memoTick);
+      }
+      card.classList.add("flipped");
+      card.setAttribute("aria-label", "Card showing " + sym);
+      if (!mFirst) { mFirst = {card: card, sym: sym}; return; }
+      mMoves++;
+      memoMovesEl.textContent = mMoves;
+      if (mFirst.sym === sym) {
+        var a = mFirst.card;
+        mFirst = null;
+        a.classList.add("matched"); card.classList.add("matched");
+        a.disabled = true; card.disabled = true;
+        a.setAttribute("aria-label", "Matched pair: " + sym);
+        card.setAttribute("aria-label", "Matched pair: " + sym);
+        mPairs++;
+        memoPairsEl.textContent = mPairs + " / 8";
+        if (mPairs === 8) {
+          mDone = true;
+          memoStopTimer();
+          memoClock();
+          var isBest = mBest === 0 || mMoves < mBest;
+          if (isBest) {
+            mBest = mMoves;
+            try { window.localStorage.setItem(MEMO_KEY, String(mBest)); } catch(e) {}
+          }
+          memoBestText();
+          memoStatus.innerHTML = "All 8 pairs found in <b>" + mMoves + " moves</b> (" + memoTimeEl.textContent + ")!" +
+            (isBest ? " That's your best score yet — sharp memory!" : " Best so far: <b>" + mBest + " moves</b> — hit New Game to beat it.");
+          var r = memoBoard.getBoundingClientRect();
+          confettiBurst(r.left + r.width / 2, Math.max(r.top + 40, 70), 130);
+        } else {
+          memoStatus.innerHTML = "Pair matched — <b>" + mPairs + " of 8</b>. Keep going!";
+        }
+      } else {
+        mLock = true;
+        var first = mFirst;
+        mFirst = null;
+        setTimeout(function(){
+          first.card.classList.remove("flipped");
+          card.classList.remove("flipped");
+          first.card.setAttribute("aria-label", "Hidden card — flip to reveal");
+          card.setAttribute("aria-label", "Hidden card — flip to reveal");
+          mLock = false;
+        }, reduced ? 350 : 780);
+      }
+    }
+    memoStart.addEventListener("click", memoDeal);
+    memoBestText();
+    memoDeal();
   }
 })();
 </script>
