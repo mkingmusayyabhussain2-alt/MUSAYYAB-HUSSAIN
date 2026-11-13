@@ -14,13 +14,13 @@
 <meta name="keywords" content="Musayyab Hussain Shah, Musayyab Hussain Shah portfolio, Musayyab Hussain Shah web developer, Musayyab Hussain portfolio, Musayyab Hussain web developer, web developer portfolio, app developer portfolio" />
 <meta name="author" content="Musayyab Hussain Shah" />
 <meta name="robots" content="index, follow" />
-<link rel="canonical" href="https://musayyab-hussain-zeta.vercel.app/" />
+<link rel="canonical" href="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/" />
 <!-- Open Graph -->
 <meta property="og:title" content="Musayyab Hussain | Web and App Developer" />
 <meta property="og:description" content="Musayyab Hussain is a Web and App Developer who turns ideas into fast, clean, real products — from business websites to full apps with AI built in." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://musayyab-hussain-zeta.vercel.app/" />
-<meta property="og:image" content="https://musayyab-hussain-zeta.vercel.app/portrait.jpg" />
+<meta property="og:url" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/" />
+<meta property="og:image" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/assets/portrait.jpg" />
 <meta property="og:image:alt" content="Portrait of Musayyab Hussain, Web and App Developer" />
 <meta property="og:locale" content="en_US" />
 <meta property="og:site_name" content="Musayyab Hussain" />
@@ -28,7 +28,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Musayyab Hussain | Web and App Developer" />
 <meta name="twitter:description" content="Musayyab Hussain is a Web and App Developer who turns ideas into fast, clean, real products — from business websites to full apps with AI built in." />
-<meta name="twitter:image" content="https://musayyab-hussain-zeta.vercel.app/portrait.jpg" />
+<meta name="twitter:image" content="https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/assets/portrait.jpg" />
 <meta name="twitter:image:alt" content="Portrait of Musayyab Hussain, Web and App Developer" />
 <!-- Structured data -->
 <script type="application/ld+json">
@@ -89,7 +89,7 @@ body::after{
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 #swarm{position:fixed;inset:0;z-index:1;pointer-events:none}
-#progress{position:fixed;top:0;left:0;height:3px;width:0;background:var(--accent);z-index:120}
+#progress{position:fixed;top:0;left:0;height:3px;width:0;max-width:100%;background:var(--accent);z-index:120;pointer-events:none;transition:background-color .3s ease;will-change:width}
 main,footer{position:relative;z-index:2}
 .wrap{width:min(1240px,100% - 40px);margin-inline:auto}
 @media(max-width:600px){.wrap{width:calc(100% - 32px)}}
@@ -783,7 +783,7 @@ h1.name,.contact-big,h2.sec-title{overflow-wrap:break-word}
 </style>
 </head>
 <body>
-<div id="progress"></div>
+<div id="progress" aria-hidden="true"></div>
 <canvas id="swarm" aria-hidden="true"></canvas>
 <canvas id="matrixCanvas" aria-hidden="true"></canvas>
 <div id="cursorGlow" aria-hidden="true"></div>
@@ -1354,13 +1354,27 @@ h1.name,.contact-big,h2.sec-title{overflow-wrap:break-word}
 
   /* ---------- scroll progress ---------- */
   var progress = document.getElementById("progress");
-  function onScrollProgress(){
+  var progressTicking = false;
+  function updateProgress(){
+    progressTicking = false;
+    if (!progress) return;
     var h = document.documentElement;
     var max = h.scrollHeight - h.clientHeight;
-    progress.style.width = (max > 0 ? (h.scrollTop / max) * 100 : 0) + "%";
+    var y = window.scrollY || h.scrollTop || document.body.scrollTop || 0;
+    var pct = max > 0 ? Math.min(100, Math.max(0, (y / max) * 100)) : 0;
+    progress.style.width = pct + "%";
+  }
+  function onScrollProgress(){
+    if (!progressTicking) {
+      progressTicking = true;
+      if (window.requestAnimationFrame) window.requestAnimationFrame(updateProgress);
+      else updateProgress();
+    }
   }
   window.addEventListener("scroll", onScrollProgress, {passive:true});
-  onScrollProgress();
+  window.addEventListener("resize", onScrollProgress, {passive:true});
+  window.addEventListener("load", onScrollProgress);
+  updateProgress();
 
   /* ---------- reveal on scroll ---------- */
   var revealEls = document.querySelectorAll(".reveal");
@@ -1506,7 +1520,7 @@ h1.name,.contact-big,h2.sec-title{overflow-wrap:break-word}
   var shareData = {
     title: "Musayyab Hussain — Web & App Developer",
     text: "Musayyab Hussain — Web and App Developer. Check out my portfolio:",
-    url: canonicalLink ? canonicalLink.href : "https://musayyab-hussain-zeta.vercel.app/"
+    url: canonicalLink ? canonicalLink.href : "https://mkingmusayyabhussain2-alt.github.io/MUSAYYAB-HUSSAIN/"
   };
   document.querySelectorAll(".share-btn").forEach(function(btn){
     var label = btn.querySelector(".share-txt");
